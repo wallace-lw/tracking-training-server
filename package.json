@@ -1,0 +1,27 @@
+{
+  "name": "tracking-training-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "tsx watch src/server.ts",
+    "lint": "eslint src -ext .ts --fix"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@rocketseat/eslint-config": "^2.1.0",
+    "@types/node": "^20.5.6",
+    "eslint": "^8.48.0",
+    "prisma": "^5.2.0",
+    "ts-node": "^10.9.1",
+    "tsx": "^3.12.7",
+    "typescript": "^5.2.2"
+  },
+  "dependencies": {
+    "@prisma/client": "^5.2.0",
+    "fastify": "^4.21.0",
+    "zod": "^3.22.2"
+  }
+}
