@@ -3,7 +3,7 @@ import { createUserSchema } from '../utils/zodSchemas/createUserSchema'
 import { CreateUserService } from '@/services/CreateUserService'
 import { UserRepository } from '@/repositories/UserRepository'
 export class CreateUserController {
-  async create(request: Request, response: Response) {
+  async handle(request: Request, response: Response) {
     const createUserService = new CreateUserService()
     const userRepo = new UserRepository()
 
