@@ -19,16 +19,15 @@ export class UserRepository {
     })
   }
 
-  async getAllUsers() {
-    const users = await prisma.user.findMany({
+  async findAllUsers() {
+    return await prisma.user.findMany({
       select: {
         id: true,
         username: true,
-        created_at: true,
         workouts: true,
+        created_at: true,
       },
     })
-    return { users }
   }
 
   async findUser(id: string) {
