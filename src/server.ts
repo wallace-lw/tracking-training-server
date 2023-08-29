@@ -1,18 +1,11 @@
-import Express from 'express'
-import { CreateUserController } from './controllers/CreateUserController'
-import { prisma } from './database'
+import express from 'express'
+import { routes } from './routes'
 
-const app = Express()
+const app = express()
 const port = 5000
 
-const createUserController = new CreateUserController()
+app.use(express.json())
 
-app.get('/', (request, response) =>
-  response.status(200).send({ message: 'Oi' }),
-)
-
-app.post('/create-user', createUserController.create)
-
-app.get('/users')
+app.use(routes)
 
 app.listen(port, () => console.log(`Server running on port ${port}`))
