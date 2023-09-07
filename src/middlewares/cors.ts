@@ -6,11 +6,11 @@ const options: cors.CorsOptions = {
     'Content-Type',
     'Accept',
     'X-Access-Token',
-    'Authorization'
+    'Authorization',
   ],
   credentials: true,
   methods: 'GET,HEAD,OPTIONS,PUT,PATCH,POST,DELETE',
   origin: '*',
-  preflightContinue: false
+  preflightContinue: false,
 }
 export const corsOptions = cors(options)
