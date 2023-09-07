@@ -3,7 +3,8 @@ import { UserRepository } from '@/repositories/UserRepository'
 export class FindUserByIdService {
   async gettingUser(id: string) {
     const userRepo = new UserRepository()
-    const user = userRepo.findUserById(id)
+    const user = await userRepo.findUserById(id)
+    console.log(user)
     return { user }
   }
 }
