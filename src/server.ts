@@ -5,7 +5,7 @@ import { router } from './routes'
 import { AppError } from './errors/app-errors'
 
 const app = express()
-const port = 5000
+const port = 8080
 
 app.use(express.json())
 
@@ -27,4 +27,6 @@ app.use(
   },
 )
 
-app.listen(port, () => console.log(`Server running on port ${port}`))
+app.listen(port, () =>
+  console.log(`Server running on port ${process.env.PORT || port}`),
+)
