@@ -1,5 +1,6 @@
 import { UserRepository } from '@/repositories/user-repository'
 import { IUser } from '../interfaces/IUser'
+import { AppError } from '@/errors/app-errors'
 
 export class CreateUserService {
   async create(data: IUser) {
@@ -8,7 +9,7 @@ export class CreateUserService {
     const userExists = await userRepo.findUserByUsername(data.username)
 
     if (userExists) {
-      throw new Error('User already exists!!')
+      throw new AppError('User already exists')
     }
 
     await userRepo.createUser(data)
