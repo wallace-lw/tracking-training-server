@@ -6,6 +6,7 @@ export class FindUserbyIdController {
     const findUserById = new FindUserByIdService()
     const { id } = request.params
     const user = await findUserById.gettingUser(id)
-    response.status(200).send(user)
+
+    return response.status(200).send(user)
   }
 }
