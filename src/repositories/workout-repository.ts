@@ -11,4 +11,12 @@ export class WorkoutRepository {
       },
     })
   }
+
+  async findWorkout(id: string) {
+    return await prisma.workout.findUnique({
+      where: {
+        id,
+      },
+    })
+  }
 }
