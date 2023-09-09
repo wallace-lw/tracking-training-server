@@ -4,4 +4,5 @@ export interface IWorkout {
   title: string
   type: string
   exercises?: IExercise[]
+  userId: string
 }
