@@ -2,11 +2,11 @@ import { User } from '../interfaces/IUser'
 import { prisma } from '../database'
 
 export class UserRepository {
-  async createUser(data: User) {
+  async createUser({ username, password }: User) {
     await prisma.user.create({
       data: {
-        username: data.username,
-        password: data.password,
+        username,
+        password,
       },
     })
   }
@@ -34,14 +34,6 @@ export class UserRepository {
         username: true,
         workouts: true,
         created_at: true,
-      },
-    })
-  }
-
-  async findUser(id: string) {
-    return await prisma.user.findUnique({
-      where: {
-        id,
       },
     })
   }
