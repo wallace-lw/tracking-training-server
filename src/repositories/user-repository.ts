@@ -16,6 +16,13 @@ export class UserRepository {
       where: {
         username,
       },
+      select: {
+        workouts: {
+          select: {
+            exercises: true,
+          },
+        },
+      },
     })
   }
 
@@ -32,8 +39,14 @@ export class UserRepository {
       select: {
         id: true,
         username: true,
-        workouts: true,
         createdAt: true,
+        workouts: {
+          select: {
+            title: true,
+            type: true,
+            exercises: true,
+          },
+        },
       },
     })
   }
