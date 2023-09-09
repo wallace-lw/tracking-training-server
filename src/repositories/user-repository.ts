@@ -16,13 +16,6 @@ export class UserRepository {
       where: {
         username,
       },
-      select: {
-        workouts: {
-          select: {
-            exercises: true,
-          },
-        },
-      },
     })
   }
 
@@ -30,6 +23,20 @@ export class UserRepository {
     return await prisma.user.findUnique({
       where: {
         id,
+      },
+      select: {
+        username: true,
+        id: true,
+        createdAt: true,
+        workouts: {
+          select: {
+            id: true,
+            userId: true,
+            type: true,
+            title: true,
+            exercises: true,
+          },
+        },
       },
     })
   }
