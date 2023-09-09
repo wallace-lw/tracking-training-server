@@ -1,8 +1,8 @@
-import { User } from '../interfaces/IUser'
+import { IUser } from '../interfaces/IUser'
 import { prisma } from '../database'
 
 export class UserRepository {
-  async createUser({ username, password }: User) {
+  async createUser({ username, password }: IUser) {
     await prisma.user.create({
       data: {
         username,

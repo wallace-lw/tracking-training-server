@@ -1,8 +1,8 @@
 import { UserRepository } from '@/repositories/user-repository'
-import { User } from '../interfaces/IUser'
+import { IUser } from '../interfaces/IUser'
 
 export class CreateUserService {
-  async create(data: User) {
+  async create(data: IUser) {
     const userRepo = new UserRepository()
 
     const userExists = await userRepo.findUserByUsername(data.username)

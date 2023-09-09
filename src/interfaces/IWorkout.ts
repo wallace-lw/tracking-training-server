@@ -1,7 +1,7 @@
-import { Exercise } from './IExercise'
+import { IExercise } from './IExercise'
 
-export interface Workout {
+export interface IWorkout {
   title: string
   type: string
-  exercises?: Exercise[]
+  exercises?: IExercise[]
 }

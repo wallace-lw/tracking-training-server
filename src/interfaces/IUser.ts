@@ -1,8 +1,8 @@
-import { Workout } from './IWorkout'
+import { IWorkout } from './IWorkout'
 
-export interface User {
+export interface IUser {
   username: string
   password: string
-  workouts?: Workout[]
+  workouts?: IWorkout[]
   created_at?: string
 }
