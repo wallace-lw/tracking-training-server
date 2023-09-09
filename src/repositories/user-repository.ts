@@ -33,7 +33,7 @@ export class UserRepository {
         id: true,
         username: true,
         workouts: true,
-        created_at: true,
+        createdAt: true,
       },
     })
   }
