@@ -3,14 +3,11 @@ import 'express-async-errors'
 import express, { NextFunction, Request, Response } from 'express'
 import { router } from './routes'
 import { AppError } from './errors/app-errors'
-import cors from 'cors'
 
 const app = express()
 const port = 5000
 
 app.use(express.json())
-
-app.use(cors)
 
 app.use(router)
 
