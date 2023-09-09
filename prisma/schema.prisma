@@ -11,35 +11,35 @@ datasource db {
 }
 
 model User {
-  id         String    @id @default(uuid())
-  username   String    @unique
-  password   String
-  workouts   Workout[]
-  created_at DateTime  @default(now())
+  id        String    @id @default(uuid())
+  username  String    @unique
+  password  String
+  workouts  Workout[]
+  createdAt DateTime  @default(now())
 
   @@map("users")
 }
 
 model Workout {
-  id         String     @id @default(uuid())
-  title      String
-  type       String
-  exercises  Exercise[]
-  created_at DateTime   @default(now())
-  updated_at DateTime   @updatedAt
-  user_id    String
-  User       User       @relation(fields: [user_id], references: [id])
+  id        String     @id @default(uuid())
+  title     String
+  type      String
+  exercises Exercise[]
+  createdAt DateTime   @default(now())
+  updatedAt DateTime   @updatedAt
+  userId    String
+  User      User       @relation(fields: [userId], references: [id])
 
   @@map("workouts")
 }
 
 model Exercise {
-  id         String   @id @default(uuid())
-  name       String   @unique
-  reps       String
-  workout_id String
-  Workout    Workout  @relation(fields: [workout_id], references: [id])
-  created_at DateTime @default(now())
+  id        String   @id @default(uuid())
+  name      String   @unique
+  reps      String
+  workoutId String
+  Workout   Workout  @relation(fields: [workoutId], references: [id])
+  createdAt DateTime @default(now())
 
   @@map("exercises")
 }
