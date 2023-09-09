@@ -1,5 +1,5 @@
 import { Request, Response } from 'express'
-import { FindAllUsersService } from '../services/find-all-user-service'
+import { FindAllUsersService } from '@/services/user'
 
 export class FindAllUsersController {
   async handle(request: Request, response: Response) {

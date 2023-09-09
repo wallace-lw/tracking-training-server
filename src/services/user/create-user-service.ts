@@ -1,5 +1,5 @@
 import { UserRepository } from '@/repositories/user-repository'
-import { IUser } from '../interfaces/IUser'
+import { IUser } from '../../interfaces/IUser'
 import { AppError } from '@/errors/app-errors'
 
 export class CreateUserService {

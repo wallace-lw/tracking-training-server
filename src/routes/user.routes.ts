@@ -1,7 +1,9 @@
 import { Router } from 'express'
-import { CreateUserController } from '@/controllers/create-user-controller'
-import { FindAllUsersController } from '@/controllers/find-all-users-controller'
-import { FindUserbyIdController } from '@/controllers/find-user-by-id-conrtroller'
+import {
+  CreateUserController,
+  FindAllUsersController,
+  FindUserbyIdController,
+} from '@/controllers/user'
 
 export const userRoutes = Router()
 const createUserController = new CreateUserController()

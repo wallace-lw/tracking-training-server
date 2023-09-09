@@ -1,5 +1,5 @@
 import { Request, Response } from 'express'
-import { FindUserByIdService } from '../services/find-user-by-id-service'
+import { FindUserByIdService } from '@/services/user'
 
 export class FindUserbyIdController {
   async handle(request: Request, response: Response) {
