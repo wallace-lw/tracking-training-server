@@ -19,4 +19,24 @@ export class WorkoutRepository {
       },
     })
   }
+
+  async findWorkoutsByUserId(userId: string) {
+    return await prisma.workout.findMany({
+      where: {
+        userId,
+      },
+    })
+  }
+
+  async findWorkouts() {
+    return await prisma.workout.findMany()
+  }
+
+  async deleteWorkout(id: string) {
+    return await prisma.workout.delete({
+      where: {
+        id,
+      },
+    })
+  }
 }
