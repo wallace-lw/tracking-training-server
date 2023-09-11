@@ -1,7 +1,7 @@
-import { IUser } from '../interfaces/IUser'
+import { IUser, IUserRepository } from '../interfaces'
 import { prisma } from '../database'
 
-export class UserRepository {
+export class UserRepository implements IUserRepository {
   async createUser({ username, password }: IUser) {
     await prisma.user.create({
       data: {
@@ -25,9 +25,8 @@ export class UserRepository {
         id,
       },
       select: {
-        username: true,
         id: true,
-        createdAt: true,
+        username: true,
         workouts: {
           select: {
             id: true,
@@ -46,9 +45,9 @@ export class UserRepository {
       select: {
         id: true,
         username: true,
-        createdAt: true,
         workouts: {
           select: {
+            id: true,
             title: true,
             type: true,
             exercises: true,
