@@ -1,6 +1,6 @@
+import { Response, Request } from 'express'
 import { CreateWorkoutService } from '@/services/workout'
 import { createWorkoutSchema } from '@/utils/zodSchemas/createWorkoutSchema'
-import { Response, Request } from 'express'
 
 export class CreateWorkoutController {
   async handle(request: Request, response: Response) {
