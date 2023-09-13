@@ -4,6 +4,6 @@ export class FindAllUsersService {
   async search() {
     const userRepo = new UserRepository()
     const users = await userRepo.findAllUsers()
-    return { users }
+    return users
   }
 }

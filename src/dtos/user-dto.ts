@@ -16,6 +16,6 @@ type Workout = {
 export type UserDTO = {
   id: string
   username: string
-  password: string
+  password?: string
   workouts: Workout[]
 }
