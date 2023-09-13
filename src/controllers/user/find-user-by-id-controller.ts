@@ -6,7 +6,9 @@ export class FindUserbyIdController {
   async handle(request: Request, response: Response) {
     try {
       const findUserById = new FindUserByIdService()
+
       const { id } = request.params
+
       if (!id) {
         return response.status(400).send({
           message: 'Id is required',
