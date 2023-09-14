@@ -7,8 +7,8 @@ export class CreateUserController {
   async handle(request: Request, response: Response) {
     try {
       const createUserService = new CreateUserService()
-      const { username, password } = createUserSchema.parse(request.body)
-      await createUserService.create(username, password)
+      const data = createUserSchema.parse(request.body)
+      await createUserService.create(data)
 
       return response.status(201).send('User created successfully!')
     } catch (error) {
