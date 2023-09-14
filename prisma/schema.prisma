@@ -36,7 +36,7 @@ model Workout {
 model Exercise {
   id        String   @id @default(uuid())
   name      String   @unique
-  reps      String
+  reps      Int
   workoutId String
   Workout   Workout  @relation(fields: [workoutId], references: [id])
   createdAt DateTime @default(now())
