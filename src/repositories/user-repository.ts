@@ -1,7 +1,9 @@
-import { IUser, IUserRepository } from '../interfaces'
+import { IUser } from '../interfaces'
 import { prisma } from '../database'
+import { UserDTO } from '@/dtos/user-dto'
+import { IUserImplementation } from '@/implementations'
 
-export class UserRepository implements IUserRepository {
+export class UserRepository implements IUserImplementation {
   async createUser({ username, password }: IUser): Promise<void> {
     await prisma.user.create({
       data: {
@@ -19,25 +21,13 @@ export class UserRepository implements IUserRepository {
     })
   }
 
-  async findUserById(id: string) {
-    return await prisma.user.findUnique({
+  async findUserById({ id }: IUser): Promise<UserDTO> {
+    const response = await prisma.user.findUnique({
       where: {
         id,
       },
-      select: {
-        id: true,
-        username: true,
-        workouts: {
-          select: {
-            id: true,
-            userId: true,
-            type: true,
-            title: true,
-            exercises: true,
-          },
-        },
-      },
     })
+    return response as UserDTO
   }
 
   async findAllUsers() {
