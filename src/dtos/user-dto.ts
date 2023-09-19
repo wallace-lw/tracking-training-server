@@ -1,7 +1,7 @@
 type Exercises = {
   id: string
   name: string
-  reps: string
+  reps: number
   workoutId: string
 }
 
@@ -16,6 +16,5 @@ type Workout = {
 export type UserDTO = {
   id: string
   username: string
-  password?: string
-  workouts?: Workout[]
+  workouts: Workout[]
 }
