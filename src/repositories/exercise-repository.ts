@@ -3,7 +3,11 @@ import { IExercise } from '@/interfaces'
 import { IExerciseImplementation } from '@/implementations/'
 
 export class ExerciseRepository implements IExerciseImplementation {
-  async createExercise({ name, reps, workoutId }: IExercise): Promise<void> {
+  async createExercise({
+    name,
+    reps,
+    workoutId,
+  }: Omit<IExercise, 'id'>): Promise<void> {
     await prisma.exercise.create({
       data: {
         name,
