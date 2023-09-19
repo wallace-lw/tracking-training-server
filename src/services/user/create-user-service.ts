@@ -3,7 +3,7 @@ import { AppError } from '@/errors/app-errors'
 import { IUser } from '@/interfaces'
 
 export class CreateUserService {
-  async create(data: IUser) {
+  async create(data: Omit<IUser, 'id'>) {
     const userRepo = new UserRepository()
     const userExists = await userRepo.findUserByUsername(data.username)
 
