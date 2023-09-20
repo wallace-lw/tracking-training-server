@@ -63,4 +63,24 @@ export class UserRepository implements IUserImplementation {
 
     return users as UserDTO[]
   }
+
+  async updateUser({ id, username, password }: IUser): Promise<void> {
+    await prisma.user.update({
+      where: {
+        id,
+      },
+      data: {
+        username,
+        password,
+      },
+    })
+  }
+
+  async deleteUser({ id }: IUser): Promise<void> {
+    await prisma.user.delete({
+      where: {
+        id,
+      },
+    })
+  }
 }
