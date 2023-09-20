@@ -16,8 +16,8 @@ export class UpdateUserController {
       }
       const data = updateUserSchema.parse(reqData)
       const updateUserService = new UpdateUserService()
-      return response.status(204).send('User updated successfully!')
       await updateUserService.update(data)
+      return response.status(204).send('User updated successfully!')
     } catch (error) {
       if (error instanceof AppError) {
         return response.status(error.statusCode).json({ error: error.message })
