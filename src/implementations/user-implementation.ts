@@ -7,5 +7,5 @@ export interface IUserImplementation {
   findUserById(id: string): Promise<UserDTO>
   findAllUsers(): Promise<UserDTO[]>
   updateUser({ id, username, password }: IUser): Promise<void>
-  deleteUser({ id }: IUser): Promise<void>
+  deleteUser(id: string): Promise<void>
 }

@@ -76,7 +76,7 @@ export class UserRepository implements IUserImplementation {
     })
   }
 
-  async deleteUser({ id }: IUser): Promise<void> {
+  async deleteUser(id: string): Promise<void> {
     await prisma.user.delete({
       where: {
         id,
