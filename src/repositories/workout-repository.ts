@@ -4,7 +4,7 @@ import { IWorkoutImplementation } from '@/implementations/workout-implementation
 import { IWorkout } from '@/interfaces'
 
 export class WorkoutRepository implements IWorkoutImplementation {
-  async create({ title, userId, type }: IWorkout) {
+  async create({ title, userId, type }: Omit<IWorkout, 'id'>) {
     await prisma.workout.create({
       data: {
         title,
