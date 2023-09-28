@@ -7,7 +7,7 @@ type Exercises = {
 
 type Workout = {
   id: string
-  userId: string
+  userId?: string
   type: string
   title: string
   exercises: Exercises[]

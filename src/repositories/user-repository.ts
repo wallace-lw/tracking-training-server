@@ -55,7 +55,6 @@ export class UserRepository implements IUserImplementation {
             title: true,
             type: true,
             exercises: true,
-            userId: true,
           },
         },
       },
