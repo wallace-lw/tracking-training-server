@@ -1,9 +1,9 @@
 import { WorkoutRepository } from '@/repositories/workout-repository'
 
 export class FindManyWorkoutsService {
-  async find() {
+  async find(userId: string) {
     const workoutRepo = new WorkoutRepository()
-    const workouts = await workoutRepo.findWorkouts()
+    const workouts = await workoutRepo.findWorkouts(userId)
 
     return { workouts }
   }
