@@ -88,7 +88,11 @@ export class WorkoutRepository implements IWorkoutImplementation {
     })
   }
 
-  async updateWorkout({ id, title, type }: IWorkout): Promise<void> {
+  async updateWorkout({
+    id,
+    title,
+    type,
+  }: Omit<IWorkout, 'userId'>): Promise<void> {
     await prisma.workout.update({
       where: {
         id,
