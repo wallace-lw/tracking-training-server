@@ -2,8 +2,8 @@ import { IExercise } from '../interfaces/IExercise'
 
 export interface IExerciseImplementation {
   createExercise(data: IExercise): Promise<void>
-  getallExercises(): Promise<IExercise[]>
-  getExercise({ id }: IExercise): Promise<IExercise>
-  updateExercise({ id }: IExercise): Promise<void>
-  deleteExercise({ id }: IExercise): Promise<void>
+  getAllExercises({ workoutId }: IExercise): Promise<IExercise[]>
+  getExercise(id: string): Promise<IExercise>
+  updateExercise({ id, name, reps }: IExercise): Promise<void>
+  deleteExercise(id: string): Promise<void>
 }

@@ -17,7 +17,7 @@ export class ExerciseRepository implements IExerciseImplementation {
     })
   }
 
-  async getExercise({ id }: IExercise): Promise<IExercise> {
+  async getExercise(id: string): Promise<IExercise> {
     const response = await prisma.exercise.findUnique({
       where: {
         id,
@@ -27,8 +27,12 @@ export class ExerciseRepository implements IExerciseImplementation {
     return response as IExercise
   }
 
-  async getallExercises(): Promise<IExercise[]> {
-    const response = await prisma.exercise.findMany()
+  async getAllExercises({ workoutId }: IExercise): Promise<IExercise[]> {
+    const response = await prisma.exercise.findMany({
+      where: {
+        workoutId,
+      },
+    })
     return response as IExercise[]
   }
 
@@ -44,7 +48,7 @@ export class ExerciseRepository implements IExerciseImplementation {
     })
   }
 
-  async deleteExercise({ id }: IExercise): Promise<void> {
+  async deleteExercise(id: string): Promise<void> {
     await prisma.exercise.delete({
       where: {
         id,
